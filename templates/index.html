@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - IDS Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <!-- Top bar for Login -->
+    <div class="top-bar">
+        <button class="login-btn" onclick="openLogin()">Login</button>
+    </div>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <h1>Welcome to IDS Security Platform 🚀</h1>
+        <p>
+            We help organizations protect their data and systems from cyber threats.<br>
+            Our Intrusion Detection System (IDS) identifies potential risks, prevents unauthorized access,
+            and ensures your company stays secure in this digital age.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2>Our Security Services</h2>
+        <div class="services-list">
+            <div class="service-card" onclick="toggleService(this)">
+                🔐 <strong>Fingerprint Login System</strong>
+                <p class="service-description">Secure user authentication using fingerprint technology to prevent unauthorized access.</p>
+            </div>
+
+            <div class="service-card" onclick="toggleService(this)">
+                📊 <strong>Network Security Monitoring</strong>
+                <p class="service-description">Monitor your network traffic to detect suspicious activities and prevent data breaches.</p>
+            </div>
+
+            <div class="service-card" onclick="toggleService(this)">
+                📁 <strong>File System Change Detection</strong>
+                <p class="service-description">Track changes in files and folders to identify unauthorized modifications in your system.</p>
+            </div>
+
+            <div class="service-card" onclick="toggleService(this)">
+                📡 <strong>Anomaly Detection (Event-based)</strong>
+                <p class="service-description">Identify unusual patterns using event-based analysis to detect potential threats early.</p>
+            </div>
+
+            <div class="service-card" onclick="toggleService(this)">
+                🛡️ <strong>Intrusion Detection System (IDS)</strong>
+                <p class="service-description">Detect unauthorized access or malicious activities in your system in real time.</p>
+            </div>
+
+            <div class="service-card" onclick="toggleService(this)">
+                🔥 <strong>Firewall Configuration Tool</strong>
+                <p class="service-description">Configure and manage your firewall settings to block unauthorized access.</p>
+            </div>
+
+            <div class="service-card" onclick="toggleService(this)">
+                📂 <strong>File Tracking</strong>
+                <p class="service-description">Track and monitor critical files across your organization to prevent data leaks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Button -->
+    <div class="support-button">
+        <a href="mailto:support@idsplatform.com">Contact Support 📧</a>
+    </div>
+
+    <!-- Login Popup Form -->
+    <div class="login-popup" id="loginPopup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <h3>User Login</h3>
+            <form action="/login" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openLogin() {
+            const popup = document.getElementById('loginPopup');
+            popup.classList.add('show');
+        }
+
+        function closeLogin() {
+            const popup = document.getElementById('loginPopup');
+            popup.classList.remove('show');
+        }
+
+        function toggleService(element) {
+            element.classList.toggle('expanded');
+            element.classList.add('highlight-animation');
+            setTimeout(() => {
+                element.classList.remove('highlight-animation');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

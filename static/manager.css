@@ -1,0 +1,171 @@
+/* General Dashboard Styling */
+.dashboard-body {
+    background-color: #121212;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    margin-top: 20px;
+}
+
+/* Table Styling */
+.table-custom {
+    background: #1c1c1c;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    margin-top: 20px;
+}
+
+.table-header {
+    background: #0d6efd;
+    color: white;
+}
+
+.table-hover tbody tr:hover {
+    background: rgba(13, 110, 253, 0.15);
+}
+
+.fade-in-row {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Status Badges */
+.badge {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 15px;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+    color: #212529;
+}
+
+/* Software Assignment Form */
+.assign-software-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #1c1c1c;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    margin-top: 20px;
+}
+
+.form-select {
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #121212;
+    color: #ffffff;
+    border: 1px solid #0d6efd;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #0a58ca;
+    box-shadow: 0 0 8px rgba(13, 110, 253, 0.5);
+}
+
+/* Button Animation */
+.btn-animate {
+    transition: transform 0.3s ease, background-color 0.3s;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+.btn-animate:hover {
+    transform: scale(1.08);
+    background-color: #0a58ca;
+}
+
+/* Logout Link */
+.logout-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #0d6efd;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+    color: #0a58ca;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effect for Table Rows */
+.table-hover tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+/* Elevate effect on card hover */
+.card-hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1c1c1c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0a58ca;
+}

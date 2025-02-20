@@ -1,0 +1,92 @@
+body.dashboard-body {
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.dashboard-header h2 {
+    color: #00796b;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: slideInDown 0.8s ease-out;
+}
+
+.table-custom {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.table-header {
+    background-color: #00796b;
+    color: white;
+}
+
+.fade-in-row {
+    animation: fadeInRow 0.6s ease-in-out;
+}
+
+@keyframes fadeInRow {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-animate {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-animate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.no-requests {
+    text-align: center;
+    color: #d32f2f;
+    font-size: 18px;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.logout-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #00796b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.logout-link:hover {
+    color: #004d40;
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

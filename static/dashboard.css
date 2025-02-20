@@ -1,0 +1,125 @@
+body.dashboard-body {
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: fadeIn 1.5s ease-in-out;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.light-theme {
+    background: linear-gradient(to right, #ffffff, #d7e8f7);
+    color: #333;
+}
+
+.dashboard-header .welcome-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    animation: slideInDown 1s ease, pulse 2s infinite alternate;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    color: #d1d1d1;
+    animation: fadeInUp 1.5s ease;
+}
+
+.dashboard-content .highlight-text {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    animation: fadeIn 2s ease, bounceIn 1.5s ease-out;
+}
+
+.btn-animated {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-animated:hover {
+    transform: scale(1.1) rotate(-3deg);
+    background-color: #28a745;
+    color: white;
+}
+
+.service-info h3 {
+    color: #00d4ff;
+    margin-bottom: 10px;
+    animation: fadeInLeft 1.5s ease;
+}
+
+.service-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-info li {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 8px;
+    animation: fadeInRight 1.5s ease;
+}
+
+.logout-section a {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.logout-section a:hover {
+    background-color: #dc3545;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.theme-toggle button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #00d4ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle button:hover {
+    background-color: #007bbd;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInLeft {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInRight {
+    from { transform: translateX(30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}

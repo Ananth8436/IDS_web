@@ -1,0 +1,73 @@
+/* Raise Service Request - Black & Blue Theme */
+.raise-request-body {
+    background-color: black;
+    color: #3498db; /* Blue Text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.request-form-container {
+    background-color: #0d0d0d;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.5);
+    max-width: 500px;
+    width: 100%;
+}
+
+.request-form-container h2 {
+    color: #3498db; /* Blue */
+    text-align: center;
+}
+
+.form-control {
+    background-color: black;
+    border: 1px solid #3498db;
+    color: white;
+}
+
+.form-control::placeholder,
+.form-floating > label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control:focus {
+    background-color: black;
+    border-color: #3498db;
+    color: white;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #217dbb;
+}
+
+.btn-outline-secondary {
+    color: #3498db;
+    border-color: #3498db;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-animated {
+    transition: transform 0.3s ease;
+}
+
+.btn-animated:hover {
+    transform: translateY(-2px);
+}

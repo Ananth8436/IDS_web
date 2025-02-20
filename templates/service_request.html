@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raise Service Request - IDS Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='services.css') }}">
+</head>
+<body class="raise-request-body d-flex justify-content-center align-items-center">
+    <div class="request-form-container p-5 rounded shadow-lg">
+        <h2 class="text-center mb-4">Raise a Service Request</h2>
+
+        <form action="/submit_request" method="POST" class="service-request-form">
+            <!-- Organization Name -->
+            <div class="form-floating mb-3">
+                <input type="text" name="org_name" class="form-control" id="org_name" placeholder="Organization Name" required>
+                <label for="org_name">Organization Name</label>
+            </div>
+
+            <!-- Your Name -->
+            <div class="form-floating mb-3">
+                <input type="text" name="cust_name" class="form-control" id="cust_name" placeholder="Your Name" required>
+                <label for="cust_name">Your Name</label>
+            </div>
+
+            <!-- Your Role -->
+            <div class="form-floating mb-3">
+                <input type="text" name="role" class="form-control" id="role" placeholder="Your Role" required>
+                <label for="role">Your Role</label>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-floating mb-3">
+                <input name="phone" class="form-control" id="phone" placeholder="Phone Number" required pattern="^\+?[0-9]{10,15}$">
+                <label for="phone">Phone Number</label>
+
+            </div>
+
+            <!-- Service Needed -->
+            <div class="form-floating mb-3">
+                <input type="text" name="service_needed" class="form-control" id="service_needed" placeholder="Service Needed" required>
+                <label for="service_needed">Service Needed</label>
+            </div>
+
+            <!-- Problem Description -->
+            <div class="form-floating mb-4">
+                <textarea class="form-control" placeholder="Describe Your Problem" id="problem_desc" name="problem_desc" required style="height: 100px"></textarea>
+                <label for="problem_desc">Describe Your Problem</label>
+            </div>
+
+            <!-- Hidden Fields for Status and Assigned Software -->
+            <input type="hidden" name="status" value="Pending">
+            <input type="hidden" name="assigned_software" value="">
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100 btn-animated">Submit Request</button>
+        </form>
+
+        <!-- Back to Dashboard -->
+        <div class="text-center mt-3">
+            <a href="/dashboard" class="btn btn-outline-secondary btn-animated">Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

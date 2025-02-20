@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard - IDS Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='manager.css') }}">
+</head>
+<body class="container mt-5 dashboard-body">
+    <div class="dashboard-header">
+        <h2>Manager Dashboard - Software Assignment</h2>
+    </div>
+
+    {% if service_requests %}
+    <table class="table table-hover table-custom">
+        <thead class="table-header">
+            <tr>
+                <th>Organization</th>
+                <th>Customer</th>
+                <th>Role</th>
+                <th>Service</th>
+                <th>Problem</th>
+                <th>Status</th>
+                <th>Software Assigned</th>
+                <th>Mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in service_requests %}
+            <tr class="fade-in-row">
+                <td>{{ request.org_name }}</td>
+                <td>{{ request.cust_name }}</td>
+                <td>{{ request.role }}</td>
+                <td>{{ request.service_needed }}</td>
+                <td>{{ request.problem_desc }}</td>
+                <td><span class="badge {% if request.status == 'Accepted' %}bg-success{% elif request.status == 'Rejected' %}bg-danger{% elif request.status == 'Software Assigned' %}bg-primary{% else %}bg-warning{% endif %}">
+                    {{ request.status }}
+                </span></td>
+                <td>
+                    {% if request.status == 'Accepted' %}
+                        <form action="/assign_software" method="POST" class="assign-software-form">
+                            <input type="hidden" name="org_name" value="{{ request.org_name }}">
+                            <input type="hidden" name="email" value="{{ request.email }}">
+                            
+                            <label for="software" class="form-label">Select Software:</label>
+                            <select name="software" id="software" class="form-select" required>
+                                <option value="" disabled selected>Select Software</option>
+                                <option value="Custom Security Suite">Custom Security Suite</option>
+                                <option value="Advanced Threat Monitor">Advanced Threat Monitor</option>
+                                <option value="SecureNet Analyzer">SecureNet Analyzer</option>
+                                <option value="Data Guardian">Data Guardian</option>
+                                <option value="CyberShield Scanner">CyberShield Scanner</option>
+                                <option value="Endpoint Defense">Endpoint Defense</option>
+                                <option value="Network Monitoring Tool">Network Monitoring Tool</option>
+                                <option value="Intrusion Detection System (IDS)">Intrusion Detection System (IDS)</option>
+                                <option value="Firewall Configuration Tool">Firewall Configuration Tool</option>
+                                <option value="File Tracking">File Tracking</option>
+                            </select>
+                            
+                            <button type="submit" class="btn btn-primary mt-2 btn-animate">Assign</button>
+                        </form>
+                    {% elif request.status == 'Software Assigned' %}
+                        <span class="text-success">{{ request.assigned_software }}</span>
+                    {% else %}
+                        <span class="text-muted">Pending Acceptance</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if request.status == 'Software Assigned' %}
+                        <form action="/send_message" method="POST">
+                            <input type="hidden" name="org_name" value="{{ request.org_name }}">
+                            <input type="hidden" name="email" value="{{ request.email }}">
+                            <input type="hidden" name="software" value="{{ request.assigned_software }}">
+                            <button type="submit" class="btn btn-info btn-sm">Send Message</button>
+                        </form>
+                    {% endif %}
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="no-requests">No Service Requests Available.</p>
+{% endif %}
+
+{% if message %}
+    <div class="alert alert-success mt-3">{{ message }}</div>
+{% endif %}
+
+<a href="/" class="logout-link">Logout</a>
+</body>
+</html>
